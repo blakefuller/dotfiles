@@ -1,0 +1,9 @@
+theme = "nordic"
+
+[keys.normal]
+"C-d" = ["half_page_down", "goto_window_center"]
+"C-u" = ["half_page_up", "goto_window_center"]
+# Print the current line's git blame information to the statusline.
+B = ":echo %sh{git show --no-patch --format='%%h (%%an: %%ar): %%s' $(git blame -p %{buffer_name} -L%{cursor_line},+1 | head -1 | cut -d' ' -f1)}"
+# lazygit 
+"C-g" = [":new", ":insert-output lazygit", ":buffer-close!", ":redraw"]
